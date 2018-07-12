@@ -8,7 +8,7 @@
                     <h3 class="panel-title">{{ $user->register_name }} <a>(@</a>{{ $user->name }})</h3>
                 </div>
                 <div class="panel-body">
-                <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->name, 500) }}" alt="">
+                    <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->name, 500) }}" alt="">
                 </div>
                 @include('user_favorite.favorite_button', ['user' => $user])
             </div>
@@ -21,14 +21,7 @@
                         <a href="{{ route('users.favorite', ['id' => $user->id]) }}">Favorites<span class="badge"></span></a></li>
             </ul>
             <br>
-            @if (count($careers) > 0)
-                @include('user_career.career', ['careers' => $careers])
-            @endif
-            @if (Auth::user()->id == $user->id)
-                {!! Form::open(['route' => ['user_career.create'], 'method' => 'get']) !!}
-                {!! Form::submit('Create', ['class' => 'btn btn-warning btn-xs']) !!}
-                {!! Form::close() !!}
-            @endif
+            @include('users.users', ['users' => $favorites])
         </div>
     </div>
 @endsection

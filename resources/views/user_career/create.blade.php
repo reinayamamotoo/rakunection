@@ -9,23 +9,46 @@
         <div class="col-md-6 col-md-offset-3">
 
             {!! Form::open(['route' => 'user_career.store']) !!}
+                
                 <div class="form-group">
                     {!! Form::label('career', '職種') !!}
-                    {!! Form::text('career', old('career'), ['class' => 'form-control']) !!}
+                    {!! Form::select('career', [
+                       ' ' => ' ',
+                       'マーケティング' => 'マーケティング',
+                       '営業・コンサルタント' => '営業・コンサルタント',
+                       '戦略・経営企画' => '戦略・経営企画',
+                       '物流・SCM' => '物流・SCM',
+                       'アプリケーションエンジニア' => 'アプリケーションエンジニア',
+                       'データサイエンティスト・リサーチャー' => 'データサイエンティスト・リサーチャー',
+                       'その他' => 'その他'
+                       ], null, ['class' => 'form-control']) !!}
                 </div>
                 
-                 <div class="form-group">
+                <div class="form-group">
+                    {!! Form::label('service', 'サービス') !!}
+                    {!! Form::select('service', [
+                       ' ' => ' ',
+                        'EC' => 'EC',
+                        'トラベル' => 'トラベル',
+                        'FinTech' => 'FinTech',
+                        '新サービス' => '新サービス',
+                        'RIT' => 'RIT',
+                        'コーポレート' => 'コーポレート'
+                       ], null, ['class' => 'form-control']) !!}
+                </div>
+                
+                <div class="form-group">
                     {!! Form::label('position', '役職') !!}
                     {!! Form::text('position', old('position'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('start', '期間') !!}
+                    {!! Form::label('start', 'いつから') !!}
                     {!! Form::text('start', old('start'), ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('end', '期間') !!}
+                    {!! Form::label('end', 'いつまで') !!}
                     {!! Form::text('end', old('end'), ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group">
@@ -35,6 +58,8 @@
 
                 {!! Form::submit('登録', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
+            
+            
         </div>
     </div>
 @endsection
