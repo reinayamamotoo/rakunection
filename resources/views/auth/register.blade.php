@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="/css/register.css">
+<div class = "register">
     <div class="text-center">
         <h1>Sign up</h1>
     </div>
@@ -33,4 +35,5 @@
             {!! Form::close() !!}
         </div>
     </div>
+</div>
 @endsection

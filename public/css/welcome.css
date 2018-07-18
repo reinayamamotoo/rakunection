@@ -1,0 +1,49 @@
+body {
+    background-image: url("images/1.jpg") ;
+    background-size: 100%;  
+}
+
+h1 {
+    color: #FFFFFF;
+    font-size: 90px;
+}
+
+.text-center{
+    margin-top:25%;
+}
+
+.btn{
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    padding: 0.25em 1em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: #03A9F4;
+}
+.btn:before, .btn:after{
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: black;
+  transition: .3s;
+}
+.btn:before {left: 7px;}
+.btn:after {right: 7px;}
+.btn:hover:before{
+  top: 0px;
+  left:0;
+  height: 100%;
+}
+.btn:hover:after{
+  top: 0px;
+  right: 0;
+  height: 100%;
+}

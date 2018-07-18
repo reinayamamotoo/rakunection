@@ -3,19 +3,17 @@
 <ul class="media-list grid">
 @foreach ($users as $user)
     @if (Auth::user()->id != $user->id)
-    <li class="media grid-item" style="width:48%;">
+    <li class="media grid-item">
         <div class="media-left">
              <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:500%;"></span> 
              <div class="text-center" style="font-size:120%;">
              {!! link_to_route('users.show', $user->register_name, ['id' => $user->id]) !!}
-            
-            @include('user_favorite.favorite_button', ['user' => $user])
-            </div>
+             </div>
         </div>
         <div class="media-body">
            <?php $careers = \App\UserCareer::where(['user_id' => $user->id])->orderBy('created_at', 'desc')->paginate(10); ?>
 
-            <div class="col-ms-6 col-md-6 col-xs-6 col-lg-6">
+            <div class="col-ms-10 col-md-10 col-xs-10 col-lg-10">
             
             </div>
             <table class="table table-striped">
@@ -31,7 +29,10 @@
                 @include('search.career_list', ['careers' => $careers])
             </tbody>
         </table>
-        
+            
+            <div class="favo-button col-ms-1 col-md-1 col-xs-1 col-lg-1">
+            @include('user_favorite.favorite_button', ['user' => $user])
+            </div>
         </div>
     </li>
     @endif

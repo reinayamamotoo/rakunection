@@ -11,10 +11,12 @@
             </div>
         </div>
     @else
-        <div class="center jumbotron">
+        <div class="center">
+        <link rel="stylesheet" href="/css/welcome.css">
             <div class="text-center">
-                <h1>Welcome to the Rakunection</h1>
-                {!! link_to_route('signup.get', 'Sign up now!', null, ['class' => 'btn btn-lg btn-primary']) !!}
+                <h1>Rakunection</h1>
+                {!! link_to_route('signup.get', 'Sign up', null, ['class' => 'btn']) !!}
+                {!! link_to_route('login', 'Log in', null, ['class' => 'btn']) !!}
             </div>
         </div>
     @endif

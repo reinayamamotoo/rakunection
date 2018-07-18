@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/search.css">
 @extends('layouts.app')
 
 @section('content')
@@ -10,8 +11,8 @@
 
             {!! Form::open(['route' => 'search.get', 'method' => 'get']) !!}
                 <div class="form-group">
-                    {!! Form::label('career', '職種') !!}
-                    {!! Form::select('career', [
+                    {!! Form::label('keyword_career', '職種') !!}
+                    {!! Form::select('keyword_career', [
                        ' ' => ' ',
                        'マーケティング' => 'マーケティング',
                        '営業・コンサルタント' => '営業・コンサルタント',
@@ -24,8 +25,8 @@
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('service', 'サービス') !!}
-                    {!! Form::select('service', [
+                    {!! Form::label('keyword_service', 'サービス') !!}
+                    {!! Form::select('keyword_service', [
                        ' ' => ' ',
                         'EC' => 'EC',
                         'トラベル' => 'トラベル',
@@ -35,18 +36,18 @@
                         'コーポレート' => 'コーポレート'
                        ], null, ['class' => 'form-control']) !!}
                 </div>
-            
-                
-                {!! Form::checkbox('tyuuto','中途') !!}中途入社
-                {!! Form::checkbox('ikukyuu','育休') !!}育休
-                
+           
                 {!! Form::submit('検索', ['class' => 'btn btn-primary btn-block']) !!}
             {!! Form::close() !!}
             
             
             <br>
-          
-            @include('users.users', ['users'=>$result])
         </div>
+        <div class="col-ms-12 col-md-12 col-xs-12 col-lg-12">
+            <div class="result-list" >
+            @include('users.users', ['users'=>$result])
+            </div>
+        </div>
+
     </div>
 @endsection

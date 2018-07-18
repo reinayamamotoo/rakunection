@@ -1,0 +1,22 @@
+.media {
+    background-color: snow;
+    border: solid 1px;
+    border-color: gray;
+    padding: 5px;    
+    border-radius: 5px;
+     margin-left: 10px;
+    margin-right: 10px;
+}
+
+.media-list {
+    width: 100%; 
+    columns: 2;
+    -webkit-columns: 2;
+}
+
+.text-center {
+    font-size: 30px;
+}
+.favo-button {
+    float: left;
+}

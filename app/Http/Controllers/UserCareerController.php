@@ -31,7 +31,7 @@ class UserCareerController extends Controller
      public function show()
     {
         $user=\Auth::user();
-        $careers = $user->careers()->orderBy('created_at', 'desc')->paginate(10);
+        $careers = $user->careers()->orderBy('start', 'desc')->paginate(10);
         
         $data = [
                 'id' => $user->id,
@@ -86,14 +86,7 @@ class UserCareerController extends Controller
         if (\Auth::check()){
         $keyword_career = $request->keyword_career;
         $keyword_service = $request->keyword_service;
-        $keyword_tyuuto = $request->tyuuto;
-        $keyword_ikukyuu = $request->ikukyuu;
-        
-        var_dump($keyword_tyuuto);
-        var_dump($keyword_ikukyuu);
-        exit;
-        
-        
+    
         $result = \App\UserCareer::search($keyword_career, $keyword_service);
         
         return view('search.search', [

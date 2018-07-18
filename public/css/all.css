@@ -1,0 +1,11 @@
+
+/* 全ページに適応されるcss */
+
+body {
+    font-family: 'Century Gothic';
+    background-color: #F7F2ED;
+    
+}
+.btn {
+    width: auto;
+}

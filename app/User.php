@@ -82,5 +82,9 @@ public function unfavorite($userId)
   
   public function is_favoriting($userId) {
     return $this->favorites()->where('favorite_id', $userId)->exists();
-}    
+    }
+
+public function user_picture(){
+    return $this->hasOne(UserPicture::Class);
+    }
 }

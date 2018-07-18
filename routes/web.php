@@ -17,6 +17,9 @@ Route::get('/', function () {
             'result' => $result,
             ]);
 });
+Route::get('user_career/create_signup', function () {
+    return view('user_career.create_signup');
+});
 
 // user registration
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
@@ -32,13 +35,17 @@ Route::group(['middleware' => ['auth']], function () {
 Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 Route::resource('user_career', 'UserCareerController');
 
-    
-//フォロー機能
-Route::group(['prefix' => 'users/{id}'], function () {
-    Route::post('favorite', 'UserFavoriteController@store')->name('user.favorite');
-    Route::delete('unfavorite', 'UserFavoriteController@destroy')->name('user.unfavorite');
-    Route::get('favorites','UsersController@favorites')->name('users.favorite');
-        });
+    //フォロー機能
+    Route::group(['prefix' => 'users/{id}'], function () {
+        Route::post('favorite', 'UserFavoriteController@store')->name('user.favorite');
+        Route::delete('unfavorite', 'UserFavoriteController@destroy')->name('user.unfavorite');
+        Route::get('favorites','UsersController@favorites')->name('users.favorite');
+        
+        Route::get('picture', 'UserPictureController@create')->name('picture.create');
+        Route::post('pictures', 'UserPictureController@store')->name('users.pictures');
+        Route::get('pictureedit', 'UserPictureController@edit')->name('picture.edit');
+        Route::post('pictureupdate', 'UserPictureController@update')->name('update.pictures');
+    });
 });
 
 // 検索機能

@@ -20,9 +20,6 @@ class UserCareer extends Model
         ->where('career', 'like', "%{$keyword_career}%")
         ->where('service', 'like', "%{$keyword_service}%");
     
-        return $query->orderBy('user_id', 'desc')->paginate(10);
+        return $query->orderBy('user_id', 'desc')->paginate(100);
     }
-        
-
-    
 }

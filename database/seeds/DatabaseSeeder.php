@@ -12,5 +12,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        // シーダクラスが複数ある場合には、この配列に追加していけばOK
+        
+        $this->call([
+          UsersTableSeeder::class,
+        ]);
     }
+
 }
