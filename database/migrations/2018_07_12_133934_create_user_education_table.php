@@ -13,7 +13,7 @@ class CreateUserEducationTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_education', function (Blueprint $table) {
+        Schema::create('user_educations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('university')->nullable();
@@ -31,6 +31,6 @@ class CreateUserEducationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_education');
+        Schema::dropIfExists('user_educations');
     }
 }

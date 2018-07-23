@@ -34,6 +34,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
 Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
 Route::resource('user_career', 'UserCareerController');
+Route::resource('user_education', 'UserEducationController');
 
     //フォロー機能
     Route::group(['prefix' => 'users/{id}'], function () {
@@ -45,6 +46,9 @@ Route::resource('user_career', 'UserCareerController');
         Route::post('pictures', 'UserPictureController@store')->name('users.pictures');
         Route::get('pictureedit', 'UserPictureController@edit')->name('picture.edit');
         Route::post('pictureupdate', 'UserPictureController@update')->name('update.pictures');
+        
+        Route::get('profileedit', 'UserProfileController@edit')->name('profile.edit');
+        Route::post('profileupdate', 'UserProfileController@update')->name('update.profiles');
     });
 });
 

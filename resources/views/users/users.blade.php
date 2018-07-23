@@ -5,13 +5,18 @@
     @if (Auth::user()->id != $user->id)
     <li class="media grid-item" style="width:48%;">
         <div class="media-left">
-             <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:500%;"></span> 
+            
+            <?php $user_object = \App\UserPicture::find($user->id) ?>
+
+            <img src="/panda-picture/{{ $user_object['user_picture'] }}.png" width="100px" height="100px" alt="">
              <div class="text-center" style="font-size:120%;">
              {!! link_to_route('users.show', $user->register_name, ['id' => $user->id]) !!}
+             <br>
+             {!! $user->tyuuto !!} 
             
             @include('user_favorite.favorite_button', ['user' => $user])
             </div>
-        </div>
+    </div>
         <div class="media-body">
            <?php $careers = \App\UserCareer::where(['user_id' => $user->id])->orderBy('created_at', 'desc')->paginate(10); ?>
 

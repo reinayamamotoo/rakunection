@@ -16,7 +16,16 @@
             {!! Form::open(['route' => 'user_career.store']) !!}
                 
                 <div class="form-group">
-                from（現在の仕事を始めた年を選択してください）
+                {!! Form::label('tyuuto', '新卒or中途') !!}
+                          {!! Form::select('tyuuto', [
+                           ' ' => ' ',
+                           '新卒' => '新卒',
+                           '中途' => '中途'
+                           ], null, ['class' => 'form-control']) !!}
+                </div>
+                
+                <div class="form-group">
+                from（現在のポジションに就いた年を選択してください）
                 {!! Form::selectRange('start', date('Y')-21, date('Y')+0, null, ['class' => 'form-control', 'placeholder'=>' ']) !!}
                 </div>
                 

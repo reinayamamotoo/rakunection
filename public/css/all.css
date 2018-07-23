@@ -9,3 +9,10 @@ body {
 .btn {
     width: auto;
 }
+
+footer{
+    margin-top: 20%;
+   text-align: center;
+   background-color: lightgray;
+}
+

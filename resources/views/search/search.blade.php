@@ -36,10 +36,16 @@
                         'コーポレート' => 'コーポレート'
                        ], null, ['class' => 'form-control']) !!}
                 </div>
-           
+                
+                <div>
+                     <label>{{Form::checkbox('keyword_shinsotsu', '新卒', null, ['class' => 'field'])}}新卒 </label>
+                　
+                     <label>{{Form::checkbox('keyword_tyuuto', '中途', null, ['class' => 'field'])}}中途 </label>
+                </div>
+                
+                
                 {!! Form::submit('検索', ['class' => 'btn btn-primary btn-block']) !!}
-            {!! Form::close() !!}
-            
+                {!! Form::close() !!}
             
             <br>
         </div>

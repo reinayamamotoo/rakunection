@@ -15,9 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'password','register_name',
+        'name', 'password','register_name', 'email', 'comment', 'club', 'homecountry', 'tyuuto',
     ];
-    
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,6 +30,11 @@ class User extends Authenticatable
     public function careers()
     {
         return $this->hasMany(UserCareer::class);
+    }
+    
+     public function educations()
+    {
+        return $this->hasOne(UserEducation::class);
     }
     
      static function search($keyword){

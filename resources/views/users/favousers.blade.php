@@ -5,7 +5,9 @@
     @if (Auth::user()->id != $user->id)
     <li class="media grid-item">
         <div class="media-left">
-             <span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:500%;"></span> 
+                         <?php $user_object = \App\UserPicture::find($user->id) ?>
+
+            <img src="/panda-picture/{{ $user_object->user_picture }}.png" width="100px" height="100px" alt="">
              <div class="text-center" style="font-size:120%;">
              {!! link_to_route('users.show', $user->register_name, ['id' => $user->id]) !!}
              </div>
@@ -26,6 +28,7 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @include('search.career_list', ['careers' => $careers])
             </tbody>
         </table>
@@ -38,5 +41,6 @@
     @endif
 @endforeach
 </ul>
+<br><br>
 {!! $users->render() !!}
 @endif

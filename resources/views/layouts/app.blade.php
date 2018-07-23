@@ -28,6 +28,11 @@
           // options...
           itemSelector: '.grid-item',
         });
-   </script>     
+   </script>
+        <footer>
+            <br>
+            <p><small>(c) 2018 Kiwami Pudding</small></p>
+            <br>
+        </footer>
     </body>
 </html>

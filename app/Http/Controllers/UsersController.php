@@ -21,11 +21,16 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $careers = $user->careers()->orderBy('created_at', 'desc')->paginate(10);
+        $educations = $user->educations()->paginate(10);
+        
+        // var_dump($careers) ;
+        // exit;
         
         $data = [
                 'id' => $user->id,
                 'user' => $user,
                 'careers' => $careers,
+                'educations' => $educations,
             ];
         
         return view('users.show', $data);

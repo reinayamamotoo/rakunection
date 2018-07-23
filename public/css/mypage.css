@@ -1,69 +1,107 @@
+.background {
+    background-image: url("images/mypagebackground.jpg") ;
+    background-size: 100%;
+    height: 50%;
+    width: 100%;
+}
+
 .media{
     background-color: white;
     padding: 1.2%;
-    border: solid 1px;
+    border: double 5px;
     border-radius: 5px;
-    border-color: black;
+    border-color: lightgray;
 }
 
-
-    
-.fukidashi1{
-	position: relative;
+/*.user-comment {
+ 	position: relative;
 	display: inline-block;
-	margin: 1.5em 15px 1.5em 0;
-	padding: 0 5px;
- 	width: 90px;
-	height: 90px;
-	line-height: 90px;
-	vertical-align: middle;
-	text-align: center;
-	color: #FFF;
-	font-size: 20px;
-	font-weight: bold;
-	background: #ff8e9d;
-	border-radius: 50%;
-	box-sizing: border-box;
+ 	margin: 1.5em 15px 1.5em 0;
+	padding: 7px 10px;
+	min-width: 20%;
+ 	max-width: 30%;
+ 	color: #555;
+	font-size: 16px;
+	background: #FFF;
+ 	border: solid 3px #555;
+ 	box-sizing: border-box;
+ 	float: left;
 }
 
-.fukidashi1:before{
+.user-comment:before{
 	content: "";
 	position: absolute;
 	top: 50%;
-	right: -25px;
-	margin-top: -15px;
-	border: 15px solid transparent;
-	border-left: 15px solid #ff8e9d;
-	z-index: 0;
+	right: -24px;
+ 	margin-top: -12px;
+	border: 12px solid transparent;
+	border-left: 12px solid #FFF;
+ 	z-index: 2;
 }
 
+.user-comment:after{
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -30px;
+ 	margin-top: -14px;
+	border: 14px solid transparent;
+	border-left: 14px solid #555;
+ 	z-index: 1;
+}
 
-.fukidashi2 {
+.user-comment p {
+	margin: 0;
+	padding: 0;
+}*/
+
+.user-tyuuto {
 	position: relative;
 	display: inline-block;
-	margin: 1.5em 0 1.5em 15px;
+	margin: 1.8em 0 1.5em 0;
 	padding: 0 5px;
 	width: 90px;
 	height: 90px;
 	line-height: 90px;
 	vertical-align: middle;
 	text-align: center;
-	color: #FFF;
+	color: black;
 	font-size: 20px;
 	font-weight: bold;
-	background: #ffcc75;
+	background: transparent;
 	border-radius: 50%;
 	box-sizing: border-box;
+	border: solid 1px;
+	border-color: gray;
 }
 
-.fukidashi2:before{
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: -25px;
-  	margin-top: -15px;
-	border: 15px solid transparent;
-	border-right: 15px solid #ffcc75;
- 	z-index: 0;
+.photo{
+	text-align:center;
+	position: relative !important;	
+	
 }
 
+.btn{
+	text-align:center;
+}
+
+.edit-button{
+	float: right !important;
+}
+
+.panel {
+	border: solid 2px;
+	border-color: lightgray;
+}
+.panel-body {
+	border: solid 1px;
+	border-color: lightgray;
+}
+
+.education-button {
+	float:right;
+}
+
+.edit-button{
+	margin-right: 10%;
+}
