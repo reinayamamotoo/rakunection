@@ -1,10 +1,12 @@
+<link rel="stylesheet" href="/css/profile_edit.css">
+
 @extends('layouts.app')
 
 @section('content')
 
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <h2>Edit Your Profile</h2>
+            <h2>プロフィールの編集</h2>
             <br>
             {!! Form::open(['route' => ['update.profiles', $user->id]]) !!}
                       <div class="form-group">

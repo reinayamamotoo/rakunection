@@ -1,3 +1,8 @@
+body {
+    background-image: url("images/top_image.jpg") ;
+    background-size: 100%;  
+}
+
 .create_signup {
-    margin-top:5%;
+    margin-top:0%;
 }

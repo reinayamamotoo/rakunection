@@ -6,7 +6,7 @@
     
 <div class="create_signup">
     <div class="text-center">
-        <h1>新規プロフィール登録</h1>
+        <h1>プロフィール登録</h1>
         <p>現在のキャリアを登録してください！</p>
     </div>
 
@@ -16,7 +16,7 @@
             {!! Form::open(['route' => 'user_career.store']) !!}
                 
                 <div class="form-group">
-                {!! Form::label('tyuuto', '新卒or中途') !!}
+                {!! Form::label('tyuuto', '新卒 or 中途') !!}
                           {!! Form::select('tyuuto', [
                            ' ' => ' ',
                            '新卒' => '新卒',
@@ -25,7 +25,7 @@
                 </div>
                 
                 <div class="form-group">
-                from（現在のポジションに就いた年を選択してください）
+                {!! Form::label('start', 'from（現在のポジションに就いた年を選択してください）') !!}
                 {!! Form::selectRange('start', date('Y')-21, date('Y')+0, null, ['class' => 'form-control', 'placeholder'=>' ']) !!}
                 </div>
                 

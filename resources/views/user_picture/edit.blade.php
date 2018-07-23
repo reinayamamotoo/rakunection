@@ -52,7 +52,7 @@
                           <label> 
                         <img src="/panda-picture/panda3.png" width="10%" height="10%" alt="" class="panda-detail">
                         <dl><dt>{!! Form::submit('Panda', ['class' => 'panda-button']) !!}</dt>
-                        <dt>Ski</dt></dl></label>
+                        <dt>Ribbon</dt></dl></label>
                         {!! Form::close() !!}
                     </li>
                 </ul></div>
@@ -64,7 +64,7 @@
                            {!! Form::hidden('user_picture', 'panda4') !!}
                            <label>
                         <img src="/panda-picture/panda4.png" width="10%" height="10%" alt="" class="panda-detail">
-                        <dl><dt>{!! Form::submit('Golf', ['class' => 'panda-button']) !!}</dt><dd></dd></dl></label>
+                        <dl><dt>{!! Form::submit('Panda', ['class' => 'panda-button']) !!}</dt><dt>Golfer</dt></dl></label>
                         {!! Form::close() !!}
                     </li>
                 </ul></div>
@@ -75,7 +75,7 @@
                         {!! Form::open(['route' => ['update.pictures', $id]]) !!}
                            {!! Form::hidden('user_picture', 'panda5') !!}<label>
                         <img src="/panda-picture/panda5.png" width="10%" height="10%" alt="" class="panda-detail">
-                        <dl><dt>{!! Form::submit('Donut', ['class' => 'panda-button']) !!}</dt><dd></dd></dl></label>
+                        <dl><dt>{!! Form::submit('Panda', ['class' => 'panda-button']) !!}</dt><dt>Donut</dt></dl></label>
                         {!! Form::close() !!}
                     </li>
                 </ul></div>
@@ -86,7 +86,7 @@
                         {!! Form::open(['route' => ['update.pictures', $id]]) !!}
                            {!! Form::hidden('user_picture', 'panda6') !!}<label>
                         <img src="/panda-picture/panda6.png" width="10%" height="10%" alt="" class="panda-detail">
-                        <dl><dt>{!! Form::submit('Card-man', ['class' => 'panda-button']) !!}</dt><dd></dd></dl></label>
+                        <dl><dt>{!! Form::submit('Panda', ['class' => 'panda-button']) !!}</dt><dt>Card-man</dt></dl></label>
                         {!! Form::close() !!}
                     </li>
                 </ul></div>
@@ -97,7 +97,7 @@
                         {!! Form::open(['route' => ['update.pictures', $id]]) !!}
                            {!! Form::hidden('user_picture', 'panda7') !!}<label>
                         <img src="/panda-picture/panda7.png" width="10%" height="10%" alt="" class="panda-detail">
-                        <dl><dt>{!! Form::submit('Shopping', ['class' => 'panda-button']) !!}</dt><dd></dd></dl></label>
+                        <dl><dt>{!! Form::submit('Panda', ['class' => 'panda-button']) !!}</dt><dt>Shopping</dt></dl></label>
                         {!! Form::close() !!}
                     </li>
                 </ul></div>
@@ -108,7 +108,7 @@
                         {!! Form::open(['route' => ['update.pictures', $id]]) !!}
                            {!! Form::hidden('user_picture', 'panda8') !!}<label>
                         <img src="/panda-picture/panda8.png" width="10%" height="10%" alt="" class="panda-detail">
-                        <dl><dt>{!! Form::submit('Singing', ['class' => 'panda-button']) !!}</dt><dd></dd></dl></label>
+                        <dl><dt>{!! Form::submit('Panda', ['class' => 'panda-button']) !!}</dt><dt>Singing</dt></dl></label>
                         {!! Form::close() !!}
                     </li>
                 </ul></div>
@@ -119,7 +119,7 @@
                         {!! Form::open(['route' => ['update.pictures', $id]]) !!}
                            {!! Form::hidden('user_picture', 'panda9') !!}<label>
                         <img src="/panda-picture/panda9.png" width="10%" height="10%" alt="" class="panda-detail">
-                        <dl><dt>{!! Form::submit('Rainy', ['class' => 'panda-button']) !!}</dt><dd></dd></dl></label>
+                        <dl><dt>{!! Form::submit('Panda', ['class' => 'panda-button']) !!}</dt><dt>Money</dt></dl></label>
                         {!! Form::close() !!}
                     </li>
                 </ul></div>
