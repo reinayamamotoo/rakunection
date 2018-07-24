@@ -7,12 +7,12 @@
         <div class="media-left">
             
             <?php $user_object = \App\UserPicture::find($user->id) ?>
-
-            <img src="/panda-picture/{{ $user_object['user_picture'] }}.png" width="100px" height="100px" alt="">
-             <div class="text-center" style="font-size:120%;">
-             {!! link_to_route('users.show', $user->register_name, ['id' => $user->id]) !!}
-             <br>
-             {!! $user->tyuuto !!} 
+                
+                <img src="/panda-picture/{{ $user_object['user_picture'] }}.png" width="100px" height="100px" alt="">
+                <div class="text-center" style="font-size:120%;">
+                {!! link_to_route('users.show', $user->register_name, ['id' => $user->id]) !!}
+                <br>
+                {!! $user->tyuuto !!} 
             
             @include('user_favorite.favorite_button', ['user' => $user])
             </div>

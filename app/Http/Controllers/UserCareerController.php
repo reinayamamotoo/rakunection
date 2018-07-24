@@ -67,7 +67,8 @@ class UserCareerController extends Controller
             'project_detail' => $request->project_detail,
             ]);
 
-        return redirect(route('user_career.show', [\Auth::user()->id]));
+        return redirect(route('search.get', [\Auth::user()->id]));
+        
     }
     
     public function edit($id){
@@ -90,13 +91,31 @@ class UserCareerController extends Controller
     
      public function search(Request $request)
     {
+        
+        $time_start = microtime(true);
+
+        // 計測したい処理
+
+
         if (\Auth::check()){
-        $keyword_career = $request->keyword_career;
-        $keyword_service = $request->keyword_service;
-        $keyword_shinsotsu = $request->keyword_shinsotsu;
-        $keyword_tyuuto = $request->keyword_tyuuto;
- 
-        $result = \App\UserCareer::search($keyword_career, $keyword_service, $keyword_tyuuto,$keyword_shinsotsu);
+            if($request->keyword_shinsotsu!=null && $request->keyword_tyuuto!=null){
+                $keyword_career = $request->keyword_career;
+                $keyword_service = $request->keyword_service;
+                $keyword_mba = $request->keyword_mba;
+                $keyword_sankyuu = $request->keyword_sankyuu;
+                $keyword_shinsotsu = null;
+                $keyword_tyuuto = null;
+            }
+            else{
+                $keyword_career = $request->keyword_career;
+                $keyword_service = $request->keyword_service;
+                $keyword_shinsotsu = $request->keyword_shinsotsu;
+                $keyword_tyuuto = $request->keyword_tyuuto;
+                $keyword_mba = $request->keyword_mba;
+                $keyword_sankyuu = $request->keyword_sankyuu;
+            }
+            
+        $result = \App\UserCareer::search($keyword_career, $keyword_service, $keyword_tyuuto, $keyword_shinsotsu, $keyword_mba, $keyword_sankyuu);
         
         return view('search.search', [
             'result' => $result,
@@ -104,6 +123,11 @@ class UserCareerController extends Controller
             'keyword_service' => $keyword_service,
             'keyword_shinsotsu' => $keyword_shinsotsu,
             'keyword_tyuuto' => $keyword_tyuuto,
+            'keyword_mba' => $keyword_mba,
+            'keyword_sankyuu' => $keyword_sankyuu,
+            
+            
+            'time_start' => $time_start,
         ]);
         }
         else{

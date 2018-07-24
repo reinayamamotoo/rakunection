@@ -16,7 +16,7 @@
             {!! Form::open(['route' => 'user_career.store']) !!}
                 
                 <div class="form-group">
-                {!! Form::label('tyuuto', '新卒 or 中途') !!}
+                {!! Form::label('tyuuto', '新卒 or 中途 (※必須) ')!!}
                           {!! Form::select('tyuuto', [
                            ' ' => ' ',
                            '新卒' => '新卒',
@@ -25,12 +25,12 @@
                 </div>
                 
                 <div class="form-group">
-                {!! Form::label('start', 'from（現在のポジションに就いた年を選択してください）') !!}
-                {!! Form::selectRange('start', date('Y')-21, date('Y')+0, null, ['class' => 'form-control', 'placeholder'=>' ']) !!}
+                {!! Form::label('start', '現在のポジションに就いた年を選択してください (※必須)') !!}
+                {!! Form::selectRange('start', date('Y')+0 , date('Y')-21, null, ['class' => 'form-control', 'placeholder'=>' ']) !!}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('career', '職種') !!}
+                    {!! Form::label('career', '職種 (※必須)') !!}
                     {!! Form::select('career', [
                        ' ' => ' ',
                        'マーケティング' => 'マーケティング',
@@ -44,7 +44,7 @@
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('service', 'サービス') !!}
+                    {!! Form::label('service', 'サービス (※必須)') !!}
                     {!! Form::select('service', [
                        ' ' => ' ',
                         'EC' => 'EC',

@@ -14,13 +14,15 @@ class UserCareer extends Model
     }
     
     
-     static function search($keyword_career, $keyword_service, $keyword_tyuuto, $keyword_shinsotsu){
+     static function search($keyword_career, $keyword_service, $keyword_tyuuto, $keyword_shinsotsu, $keyword_mba, $keyword_sankyuu){
         $query = self::query();
         $query->join('users', 'user_careers.user_id', '=', 'users.id')
         ->where('career', 'like', "%{$keyword_career}%")
         ->where('service', 'like', "%{$keyword_service}%")
         ->where('tyuuto', 'like', "%{$keyword_shinsotsu}%")
-        ->where('tyuuto', 'like', "%{$keyword_tyuuto}%");
+        ->where('tyuuto', 'like', "%{$keyword_tyuuto}%")
+        ->where('comment', 'like', "%{$keyword_mba}%")
+        ->where('comment', 'like', "%{$keyword_sankyuu}%");
         
         
     

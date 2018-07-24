@@ -1,15 +1,17 @@
 .details ul {
 list-style: none;
 top: 0;
-height: 180px;
+height: 40%;
 margin: 0;
 padding: 0;
 text-align: center;
+margin-top: 2%;
+margin-left: 15%;
 }
 .details ul li,
 .details ul li dl {
-width: 200px;
-height: 110px;
+width: 100px;
+height: 70px;
 }
 .details ul {
 letter-spacing: -1em;
@@ -18,14 +20,15 @@ letter-spacing: -1em;
 display: inline-block;
 position: relative;
 overflow: hidden;
-margin: 0;
+margin-left:2.5%;
+margin-right:2.5%;
 letter-spacing: 0;
 }
 .details ul dl {
 position: absolute;
 top: 0;
 margin: 0;
-padding: 20px 25px;
+padding: 10px 2px 0px 2px;
 box-sizing: border-box;
 color: #fff;
 background: rgba(205,92,92,.9);
@@ -47,8 +50,8 @@ color: white;
 }
 /* type1 */
 .type1 {
-    margin-left:20%;
-    margin-right:20%;
+    margin-left:30%;
+    margin-right:30%;
 }
 .type1 dl {
 opacity: 0;
