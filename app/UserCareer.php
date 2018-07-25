@@ -60,7 +60,7 @@ class UserCareer extends Model
   
   
     //dd($query->toSql());
-       return $query->orderBy('user_id', 'desc')->paginate(100);
+       return $query->orderBy('user_id')->paginate(100);
   
     }
 }

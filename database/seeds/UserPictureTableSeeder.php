@@ -183,7 +183,9 @@ class UserPictureTableSeeder extends Seeder
 
 83,'panda2', 
 
-84,'panda3' 
+84,'panda3',
+
+85,'panda1'
 
 ]; 
 
@@ -203,7 +205,7 @@ class UserPictureTableSeeder extends Seeder
 
          
 
-        for($i=0; $i<84; $i++) { 
+        for($i=0; $i<85; $i++) { 
 
             DB::table('user_pictures')->insert([ 
 

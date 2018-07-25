@@ -55,9 +55,10 @@ class UserCareerController extends Controller
         \Auth::user()->where('id', \Auth::user()->id)->update([
             'tyuuto' => $request->tyuuto,
             ]);
-        \Auth::user()->user_picture()->create([
-            'user_picture' => 'panda0',
-            ]);
+        if(\Auth::user()->user_picture()==null){
+            \Auth::user()->user_picture()->create([
+                'user_picture' => 'panda0',
+                ]);
         \Auth::user()->careers()->create([
             'career' => $request->career,
             'service' => $request->service,
@@ -66,10 +67,24 @@ class UserCareerController extends Controller
             'end' => $request->end,
             'project_detail' => $request->project_detail,
             ]);
-
-        return redirect(route('search.get', [\Auth::user()->id]));
         
+        return redirect(route('search.get', [\Auth::user()->id]));
+        }
+        
+        else{
+            \Auth::user()->careers()->create([
+            'career' => $request->career,
+            'service' => $request->service,
+            'position' => $request->position,
+            'start' => $request->start,
+            'end' => $request->end,
+            'project_detail' => $request->project_detail,
+            ]);
+        
+        return redirect(route('search.get', [\Auth::user()->id]));
+        }
     }
+    
     
     public function edit($id){
         $career = UserCareer::find($id);
