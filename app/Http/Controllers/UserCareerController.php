@@ -91,48 +91,58 @@ class UserCareerController extends Controller
     
      public function search(Request $request)
     {
-        
-        $time_start = microtime(true);
+       $time_start = microtime(true);
 
-        // 計測したい処理
+       // 計測したい処理
+       
+       //Requestからkeyword抽出
+       $keyword_start = $request->keyword_start;
+       $keyword_end = $request->keyword_end;
 
+       //string -> int変換
+       $keyword_start = intval($keyword_start);
+       $keyword_end = intval($keyword_end);
 
-        if (\Auth::check()){
-            if($request->keyword_shinsotsu!=null && $request->keyword_tyuuto!=null){
-                $keyword_career = $request->keyword_career;
-                $keyword_service = $request->keyword_service;
-                $keyword_mba = $request->keyword_mba;
-                $keyword_sankyuu = $request->keyword_sankyuu;
-                $keyword_shinsotsu = null;
-                $keyword_tyuuto = null;
-            }
-            else{
-                $keyword_career = $request->keyword_career;
-                $keyword_service = $request->keyword_service;
-                $keyword_shinsotsu = $request->keyword_shinsotsu;
-                $keyword_tyuuto = $request->keyword_tyuuto;
-                $keyword_mba = $request->keyword_mba;
-                $keyword_sankyuu = $request->keyword_sankyuu;
-            }
-            
-        $result = \App\UserCareer::search($keyword_career, $keyword_service, $keyword_tyuuto, $keyword_shinsotsu, $keyword_mba, $keyword_sankyuu);
-        
-        return view('search.search', [
-            'result' => $result,
-            'keyword_career' => $keyword_career,
-            'keyword_service' => $keyword_service,
-            'keyword_shinsotsu' => $keyword_shinsotsu,
-            'keyword_tyuuto' => $keyword_tyuuto,
-            'keyword_mba' => $keyword_mba,
-            'keyword_sankyuu' => $keyword_sankyuu,
-            
-            
-            'time_start' => $time_start,
-        ]);
-        }
-        else{
-            return view('welcome');
-        }
+       if (\Auth::check()){
+           if($request->keyword_shinsotsu!=null && $request->keyword_tyuuto!=null){
+               $keyword_career = $request->keyword_career;
+               $keyword_service = $request->keyword_service;
+               $keyword_mba = $request->keyword_mba;
+               $keyword_sankyuu = $request->keyword_sankyuu;
+               $keyword_shinsotsu = null;
+               $keyword_tyuuto = null;
+               $keyword_university = $request-> keyword_university;
+               
+           }
+           else{
+               $keyword_career = $request->keyword_career;
+               $keyword_service = $request->keyword_service;
+               $keyword_shinsotsu = $request->keyword_shinsotsu;
+               $keyword_tyuuto = $request->keyword_tyuuto;
+               $keyword_mba = $request->keyword_mba;
+               $keyword_sankyuu = $request->keyword_sankyuu;
+               $keyword_university = $request-> keyword_university;
+           }
+           
+       $result = \App\UserCareer::search($keyword_career, $keyword_service, $keyword_tyuuto, $keyword_shinsotsu, $keyword_mba, $keyword_sankyuu, $keyword_start, $keyword_end, $keyword_university);
+       
+       return view('search.search', [
+           'result' => $result,
+           'keyword_career' => $keyword_career,
+           'keyword_service' => $keyword_service,
+           'keyword_shinsotsu' => $keyword_shinsotsu,
+           'keyword_tyuuto' => $keyword_tyuuto,
+           'keyword_mba' => $keyword_mba,
+           'keyword_sankyuu' => $keyword_sankyuu,
+           'keyword_start' => $request->keyword_start,
+           'keyword_end' => $request->keyword_end,
+           
+           'time_start' => $time_start,
+       ]);
+       }
+       else{
+           return view('welcome');
+       }
     }
     
     

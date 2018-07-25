@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="/css/mypage.css">
+@if(Auth::user()->id == $user->id)
+    <link rel="stylesheet" href="/css/mypage.css">
+@else
+    <link rel="stylesheet" href="/css/otherprofile.css">
+@endif
 
 @extends('layouts.app')
 
@@ -10,6 +14,7 @@
                     <div>
                         <img src="/panda-picture/{{ $user->user_picture['user_picture'] }}.png" height="60%" alt="" class="">
                         <br>
+                            
                         @if (Auth::user()->id == $user->id)
                             <p class="profile-button">
                             {!! Form::open(['route' => ['picture.edit', 'id' => Auth::user()->id], 'method' => 'get']) !!}
@@ -27,6 +32,9 @@
                     </p>
                     </div>
                     @endif
+                    @if(Auth::user()->id != $user->id)
+                        @include('user_favorite.favorite_button', ['user' => $user])
+                    @endif
                 </div>
             </div>
                 <div class="user-info">
@@ -37,70 +45,72 @@
                         <class="user-comment" style="font-size:150%;">”{{ $user->comment }}”
                     </div>
                 </div>    
-        <div class="details">
-            <br>
-            <link rel="stylesheet" href='{{ url("/css/hover.css")}}'>
-            <ul>
-                 <li class="type1">
-                    <img src='/css/images/building.png' height="100%" width="70%">
-                    <dl>
-                    <dd>{!! $user -> tyuuto !!}</dd>
-                    <dd></dd>
-                    
-                    </dl>
-                </li>
-                <li class="type1">
-                    <img src='/css/images/sports.png' height="100%" width="70%">
-                    <dl>
-                        <dt>同好会</dt>
-                        <dd>{!! $user -> club !!}</dd>
+            <div class="details">
+                <br>
+                <link rel="stylesheet" href='{{ url("/css/hover.css")}}'>
+                <ul>
+                     <li class="type1">
+                        <img src='/css/images/building.png' height="100%" width="70%">
+                        <dl>
+                        <dd style="margin-top:14%">{!! $user -> tyuuto !!}</dd>
                         <dd></dd>
-                    
-                    </dl>
-                </li>
-            
-                <li class="type1">
-                    <img src='{{url("/css/images/world.png")}}' height="100%" width="70%">
-                    <dl>
-                    <dt>出身</dt>
-                    <dd>{!! $user -> homecountry !!}</dd>
-                    </dl>
-                </li>
-            
-                <li class="type1">
-                    <img src='/css/images/school.png' height="100%" width="70%">
-                    <dl>
-                            <dd>{{ $user->educations['university'] }} {{ $user->educations['major'] }}</dd>
-                    </dl>
-                    
-                </li>
-                <li class="type1">
-                    <img src='/css/images/mail.png' height="100%" width="70%">
-                    <dl>
-                    <dd><a href="mailto:{!! $user -> email !!} ?subject=【Rakunection】{!! Auth::user()->register_name!!}さんからのメッセージ&amp;body=">コンタクトはこちら</a></dd>
-                    </dl>
-                </li>
-            </ul>
-        </div>
-            <div class="tablezone">
-                    <ul class="nav nav-tabs nav-justified">
-                        <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}">
-                                <a href="{{ route('users.show', ['id' => $user->id]) }}">Careers<span class="badge"></span></a></li>
-                        <li role="presentation" class="{{ Request::is('users/*/favorite') ? 'active' : '' }}">
-                                <a href="{{ route('users.favorite', ['id' => $user->id]) }}">Favorites<span class="badge"></span></a></li>
-                    </ul>
-                    <br>
-                    @if (count($careers) > 0)
-                        @include('user_career.career', ['careers' => $careers])
-                    @endif
-                    @if (Auth::user()->id == $user->id)
-                        {!! Form::open(['route' => ['user_career.create'], 'method' => 'get']) !!}
-                        {{ Form::button('<i class="glyphicon glyphicon-plus-sign" title="キャリアを追加"></i>', ['type' => 'submit', 'class' => 'btn btn-default'] )  }}
-                        {!! Form::close() !!}
-                    @endif
-                </div>
+                        
+                        </dl>
+                    </li>
+                    <li class="type1">
+                        <img src='/css/images/sports.png' height="100%" width="70%">
+                        <dl>
+                            <dt>同好会</dt>
+                            <dd>{!! $user -> club !!}</dd>
+                            <dd></dd>
+                        
+                        </dl>
+                    </li>
+                
+                    <li class="type1">
+                        <img src='{{url("/css/images/world.png")}}' height="100%" width="70%">
+                        <dl>
+                        <dt>出身</dt>
+                        <dd style="font-size: 75%">{!! $user -> homecountry !!}</dd>
+                        </dl>
+                    </li>
+                
+                    <li class="type1">
+                        <img src='/css/images/school.png' height="100%" width="70%">
+                        <dl>
+                            <dt style="font-size: 65%">出身校</dt>
+                            <dd style="font-size: 65%">{{ $user->educations['university'] }}</dd>
+                            <dt style="font-size: 65%">専攻</dt>
+                            <dd style="font-size: 65%">{{ $user->educations['major'] }}</dd>
+                        </dl>
+                        
+                    </li>
+                    <li class="type1">
+                        <img src='/css/images/mail.png' height="100%" width="70%">
+                        <dl>
+                        <dd><a href="mailto:{!! $user -> email !!} ?subject=【Rakunection】{!! Auth::user()->register_name!!}さんからのメッセージ&amp;body=">コンタクトはこちら</a></dd>
+                        </dl>
+                    </li>
+                </ul>
             </div>
-    </div>
-</div>    
+            <div class="tablezone">
+                <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}">
+                            <a href="{{ route('users.show', ['id' => $user->id]) }}">Careers<span class="badge"></span></a></li>
+                    <li role="presentation" class="{{ Request::is('users/*/favorite') ? 'active' : '' }}">
+                            <a href="{{ route('users.favorite', ['id' => $user->id]) }}">Favorites<span class="badge"></span></a></li>
+                </ul>
+                <br>
+                @if (count($careers) > 0)
+                    @include('user_career.career', ['careers' => $careers])
+                @endif
+                @if (Auth::user()->id == $user->id)
+                    {!! Form::open(['route' => ['user_career.create'], 'method' => 'get']) !!}
+                    {{ Form::button('<i class="glyphicon glyphicon-plus-sign" title="キャリアを追加"></i>', ['type' => 'submit', 'class' => 'btn btn-default'] )  }}
+                    {!! Form::close() !!}
+                @endif
+            </div>
+        </div>
+    </div>    
 @endsection
 

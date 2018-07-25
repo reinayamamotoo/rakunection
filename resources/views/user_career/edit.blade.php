@@ -36,7 +36,8 @@
                         'FinTech' => 'FinTech',
                         '新サービス' => '新サービス',
                         'RIT' => 'RIT',
-                        'コーポレート' => 'コーポレート'
+                        'コーポレート' => 'コーポレート',
+                        'その他' => 'その他'
                        ], $career->service, ['class' => 'form-control']) !!}
                 </div>
                 

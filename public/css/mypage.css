@@ -123,3 +123,8 @@ body {
 .user-info{
 	margin-left: 28%;
 }
+.btn-favorite{
+	float: left !important;
+	width: 50px;
+	margin-top: 10%;
+}

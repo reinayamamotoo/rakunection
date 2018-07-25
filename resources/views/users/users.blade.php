@@ -12,7 +12,10 @@
                 <div class="text-center" style="font-size:120%;">
                 {!! link_to_route('users.show', $user->register_name, ['id' => $user->id]) !!}
                 <br>
-                {!! $user->tyuuto !!} 
+                
+                {{ $user->tyuuto }} 
+                <br>
+                {{ $user->start_career }}年入社
             
             @include('user_favorite.favorite_button', ['user' => $user])
             </div>

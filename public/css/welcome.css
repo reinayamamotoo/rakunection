@@ -6,11 +6,19 @@ body {
 
 h1 {
     color: black;
-    font-size: 90px;
+    font-size: 500%;
+    font-family: 'MS Sans Serif' !important;
+}
+.page-tytle{
+  border-bottom: solid 2px black;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
 .text-center{
-    margin-top:25%;
+    margin-top:20%;
 }
 
 .btn{

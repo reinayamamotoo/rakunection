@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('club')->nullable();
             $table->string('homecountry')->nullable();
             $table->string('tyuuto')->nullable();
+            $table->string('start_career')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
